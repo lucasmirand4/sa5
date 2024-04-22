@@ -4,9 +4,9 @@
 <div class="container-fluid mt-3">
     <form action="{% url 'criar' %}" method="post">
         {% csrf_token %}
-        <input type="text" name="nome" placeholder="Nome completo" />
-        <input type="text" name="email" placeholder="example@example.com" />
-        <input type="number" name="idade" placeholder="Idade" />
+        <input type="text" name="nome" placeholder="Nome do Produto" />
+        <input type="text" name="email" placeholder="Código de barras" />
+        <input type="number" name="idade" placeholder="Quantidade" />
         <button type="submit">Salvar</button>
     </form>
 

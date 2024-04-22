@@ -11,8 +11,9 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Nome</th>
-                    <th>Email</th>
+                    <th>Produto</th>
+                    <th>Codigo</th>
+                    <th>Quantidade</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -22,6 +23,7 @@
                         <td width="27%">{{row.id}}</td>
                         <td width="27%">{{row.nome}}</td>
                         <td width="27%">{{row.email}}</td>
+                        <td width="27%">{{row.idade}}</td>
                         <td width="15%"><a class="btn btn-primary" href="{% url "atualizar_id" row.id %}">atualizar</a></td>
                     </tr>
                     {% endfor %}

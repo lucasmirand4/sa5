@@ -4,9 +4,9 @@
 <div class="container-fluid mt-3">
     <form action="{% url 'atualizar_id' pessoa.id %}" method="post">
         {% csrf_token %}
-        <input type="text" name="nome" value="{{pessoa.nome}}" placeholder="Nome completo" />
-        <input type="text" name="email" value="{{pessoa.email}}" placeholder="example@example.com" />
-
+        <input type="text" name="nome" value="{{pessoa.nome}}" placeholder="Produto" />
+        <input type="text" name="email" value="{{pessoa.email}}" placeholder="Código de barras" />
+        <input type="number" name="idade" value="{{pessoa.idade}}" placeholder="Quantidade" />
         <button type="submit">Salvar</button>
     </form>
     

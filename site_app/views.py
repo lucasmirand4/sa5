@@ -6,8 +6,9 @@ dados = []
 def home(request):
     nome = ""
     email = ""
-    idade = 0
-    dados = Pessoa.objects.all()
+    idade = ""
+    dados = Pessoa.objects.all().order_by('-id')[:10]
+    
 
     if request.POST:
         nome = request.POST.get("nome")
@@ -15,7 +16,7 @@ def home(request):
         idade= request.POST.get("idade")
         Pessoa.objects.create(nome= nome,email= email, idade = idade)
         
-    return render(request, "site_app/global/home.html", context={"dados":dados,"nome":nome,"email":email})
+    return render(request, "site_app/global/home.html", context={"dados":dados,"nome":nome,"email":email, "idade":idade})
 
 
 def deletar(request,id=0):

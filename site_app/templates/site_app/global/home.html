@@ -2,13 +2,7 @@
 
 {% block content %}
 <div class="container-fluid mt-3">
-    <form action="{% url 'home' %}" method="post">
-        {% csrf_token %}
-        <input type="text" name="nome" placeholder="Nome completo" />
-        <input type="text" name="email" placeholder="example@example.com" />
-
-        <button type="submit">Salvar</button>
-    </form>
+    
         <div>
             {% if nome %}
                 <h1> Dados obtidos: </h1>
@@ -20,8 +14,9 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Nome</th>
-                    <th>Email</th>
+                    <th>Produto</th>
+                    <th>Codigo</th>
+                    <th>Quantidade</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -31,7 +26,7 @@
                         <td width="27%">{{row.id}}</td>
                         <td width="27%">{{row.nome}}</td>
                         <td width="27%">{{row.email}}</td>
-                        <td width="25%"><a class="btn btn-danger" href="{% url "deletar_id" row.id %}">Deletar</a> <a class="btn btn-primary" href="{% url "atualizar_id" row.id %}">atualizar</a></td>
+                        <td width="27%">{{row.idade}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
