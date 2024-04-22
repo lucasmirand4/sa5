@@ -1,38 +1,73 @@
 {% extends "site_app/global/base.html" %}
 
+{% block styles %}
+<style>
+    /* Estilos personalizados */
+    .container-fluid {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+        background-color: #f8f9fa;
+    }
+
+    .table th,
+    .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table th {
+        background-color: #343a40;
+        color: #fff;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #e9ecef;
+    }
+</style>
+{% endblock styles %}
+
 {% block content %}
 <div class="container-fluid mt-3">
-    
-        <div>
-            {% if nome %}
-                <h1> Dados obtidos: </h1>
-                <p>{{nome}} {{email}}</p> 
-            {% endif %}
-    
-            {% if dados %}
-            <table class="table table-dark table-striped">
+    <div>
+        {% if nome %}
+            <h1>Dados obtidos:</h1>
+            <p>{{ nome }} {{ email }}</p>
+        {% endif %}
+
+        {% if dados %}
+            <table class="table table-striped">
                 <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Produto</th>
-                    <th>Codigo</th>
-                    <th>Quantidade</th>
-                    <th></th>
-                </tr>
+                    <tr>
+                        <th>Id</th>
+                        <th>Produto</th>
+                        <th>Código</th>
+                        <th>Quantidade</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {% for row in dados %}
-                    <tr>
-                        <td width="27%">{{row.id}}</td>
-                        <td width="27%">{{row.nome}}</td>
-                        <td width="27%">{{row.email}}</td>
-                        <td width="27%">{{row.idade}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ row.id }}</td>
+                            <td>{{ row.nome }}</td>
+                            <td>{{ row.email }}</td>
+                            <td>{{ row.idade }}</td>
+                        </tr>
                     {% endfor %}
                 </tbody>
             </table>
-            {% endif %} 
-        </div>
+        {% endif %}
+    </div>
 </div>
 {% endblock content %}
-

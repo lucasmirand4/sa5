@@ -1,20 +1,54 @@
 {% extends "site_app/global/base.html" %}
 
+{% block styles %}
+<style>
+    /* Estilos personalizados */
+    .container-fluid {
+        padding: 20px;
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #007bff;
+        border: none;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+{% endblock styles %}
+
 {% block content %}
 <div class="container-fluid mt-3">
     <form action="{% url 'criar' %}" method="post">
         {% csrf_token %}
         <input type="text" name="nome" placeholder="Nome do Produto" />
-        <input type="text" name="email" placeholder="Código de barras" />
+        <input type="text" name="email" placeholder="Código de Barras" />
         <input type="number" name="idade" placeholder="Quantidade" />
         <button type="submit">Salvar</button>
     </form>
 
     {% if nome %}
-        <h1> Dados obtidos: </h1>
-        <p>{{nome}} {{email}} {{idade}}</p> 
+    <h1>Dados obtidos:</h1>
+    <p>{{ nome }} {{ email }} {{ idade }}</p>
     {% endif %}
 
 </div>
 {% endblock content %}
-
